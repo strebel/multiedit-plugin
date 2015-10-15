@@ -200,7 +200,7 @@ function doMultiMeta() {
 		$matches = '';
 		//check for multiedit declaration in template
 		if (preg_match( '|MultiEdit:(.*)$|mi', $template_data, $matches)) {
-			 $multi = explode(',',_cleanup_header_comment($matches[1]));
+			 $multi = array_map('trim', explode(',',_cleanup_header_comment($matches[1])));
 			 // load scripts
 			 multieditAdminHeader();
 			 // WE have multiedit zones, load js and css load
